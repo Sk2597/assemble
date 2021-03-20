@@ -1,0 +1,48 @@
+
+
+<section class="example-section">
+    <span class="example-list-section">
+      <h1>Select Parts</h1>  
+      <mat-checkbox class="example-margin"
+                    [checked]="allSelected"
+                    [color]="part.color"
+                    [indeterminate]="someSelected()"
+                    (change)="setAll($event.checked)">
+        {{part.name}}
+      </mat-checkbox>
+    </span>
+
+    <div class="scrolling-wrapper-flexbox">
+        <div class="card" *ngFor="let subpart of part.subparts">
+            <mat-card class="example-card" >
+            <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>
+                <!-- <mat-card-actions> -->
+                    <mat-checkbox [(ngModel)]="subpart.selected"
+                     [color]="subpart.color"
+                     (ngModelChange)="updateAllSelected()">
+                    </mat-checkbox>
+                    {{subpart.name}}
+                <!-- </mat-card-actions> -->
+            </mat-card-title>
+            <!-- <mat-card-subtitle>Part</mat-card-subtitle> -->
+            </mat-card-header>
+            <img mat-card-image src= {{subpart.image}} alt="subpart image">
+            <!-- <mat-card-content>
+            </mat-card-content> -->
+        </mat-card>
+    </div>
+    </div>
+  </section>
+<div>
+    <button mat-raised-button color="primary" class = "buttonRight" (click)="saveOptions();">Next</button>
+</div>
+
+
+
+
+
+
+
+ 
